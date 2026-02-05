@@ -1,0 +1,29 @@
+:root {
+  /* Colors */
+  --color-bg-dark: #050505;
+  --color-bg-card: #0a0a0a;
+  --color-neon-cyan: #00f3ff;
+  --color-neon-green: #0aff00;
+  --color-neon-purple: #bd00ff;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #aaaaaa;
+  
+  /* Fonts */
+  --font-heading: 'Orbitron', sans-serif;
+  --font-body: 'JetBrains Mono', monospace;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 8rem;
+
+  /* Borders */
+  --border-width: 1px;
+  --border-glow: 0 0 10px rgba(0, 243, 255, 0.5);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.4s ease;
+}

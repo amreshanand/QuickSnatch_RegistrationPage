@@ -1,0 +1,126 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: var(--spacing-sm);
+    z-index: 1000;
+    transition: background 0.3s ease, padding 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.scrolled {
+    background: rgba(5, 5, 5, 0.9);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--color-neon-cyan);
+}
+
+.links {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+}
+
+.link {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    position: relative;
+}
+
+.link:hover {
+    color: var(--color-neon-cyan);
+    text-shadow: 0 0 8px var(--color-neon-cyan);
+}
+
+.registerBtn {
+    background: transparent;
+    border: 1px solid var(--color-neon-green);
+    color: var(--color-neon-green);
+    padding: 0.5rem 1rem;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.registerBtn:hover {
+    background: var(--color-neon-green);
+    color: var(--color-bg-dark);
+    box-shadow: 0 0 15px var(--color-neon-green);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 2px;
+    background: var(--color-text-primary);
+    transition: all 0.3s ease;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .links {
+        position: fixed;
+        top: 60px;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: rgba(10, 10, 10, 0.95);
+        flex-direction: column;
+        padding-top: var(--spacing-lg);
+        transition: right 0.3s ease;
+        border-left: 1px solid var(--color-neon-cyan);
+    }
+
+    .links.active {
+        right: 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* Hamburger Animation */
+    .barOpen:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .barOpen:nth-child(2) {
+        opacity: 0;
+    }
+
+    .barOpen:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+}
