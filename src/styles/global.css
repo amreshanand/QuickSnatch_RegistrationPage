@@ -15,22 +15,31 @@ body {
     min-height: 100vh;
 }
 
+/* Selection */
+::selection {
+    background: var(--color-neon-cyan);
+    color: #000;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
+    background: #000;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--color-bg-dark);
+    background: #050505;
+    border-left: 1px solid #1a1a1a;
 }
 
 ::-webkit-scrollbar-thumb {
     background: var(--color-neon-cyan);
-    border-radius: 4px;
+    border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-neon-purple);
+    background: #fff;
+    box-shadow: 0 0 10px var(--color-neon-cyan);
 }
 
 /* Background Grid Effect */
@@ -63,7 +72,42 @@ body::after {
     background-size: 100% 4px;
     pointer-events: none;
     z-index: 9999;
-    opacity: 0.3;
+    opacity: 0.15;
+    animation: flicker 0.15s infinite;
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 0.15;
+    }
+
+    5% {
+        opacity: 0.2;
+    }
+
+    10% {
+        opacity: 0.15;
+    }
+
+    15% {
+        opacity: 0.25;
+    }
+
+    20% {
+        opacity: 0.15;
+    }
+
+    25% {
+        opacity: 0.2;
+    }
+
+    30% {
+        opacity: 0.25;
+    }
+
+    100% {
+        opacity: 0.15;
+    }
 }
 
 a {

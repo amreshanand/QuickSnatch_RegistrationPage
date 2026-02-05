@@ -8,7 +8,67 @@
     position: relative;
     overflow: hidden;
     padding-top: 80px;
-    /* Navbar height */
+}
+
+.heroSection::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+}
+
+.heroSection::after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(18, 16, 16, 0.1);
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+    animation: flicker 0.15s infinite;
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 0.1;
+    }
+
+    5% {
+        opacity: 0.2;
+    }
+
+    10% {
+        opacity: 0.1;
+    }
+
+    15% {
+        opacity: 0.3;
+    }
+
+    20% {
+        opacity: 0.1;
+    }
+
+    25% {
+        opacity: 0.2;
+    }
+
+    30% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 0.1;
+    }
 }
 
 .backgroundGlow {
@@ -18,14 +78,16 @@
     transform: translate(-50%, -50%);
     width: 60vw;
     height: 60vw;
-    background: radial-gradient(circle, rgba(0, 243, 255, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(0, 243, 255, 0.15) 0%, transparent 70%);
     z-index: -1;
     pointer-events: none;
     animation: pulse 4s infinite ease-in-out;
 }
 
 @keyframes pulse {
-    0% {
+
+    0%,
+    100% {
         opacity: 0.5;
         transform: translate(-50%, -50%) scale(1);
     }
@@ -34,68 +96,88 @@
         opacity: 0.8;
         transform: translate(-50%, -50%) scale(1.1);
     }
-
-    100% {
-        opacity: 0.5;
-        transform: translate(-50%, -50%) scale(1);
-    }
 }
 
 .content {
-    z-index: 1;
-    max-width: 800px;
+    z-index: 5;
+    max-width: 900px;
+    padding: 0 20px;
 }
 
 .title {
-    font-size: 5rem;
+    font-size: clamp(3rem, 10vw, 6rem);
     font-weight: 900;
     margin-bottom: var(--spacing-sm);
     position: relative;
     color: var(--color-text-primary);
-    text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.8);
+    letter-spacing: -2px;
 }
 
 .title span {
     color: var(--color-neon-purple);
-    text-shadow: 0 0 10px rgba(189, 0, 255, 0.5);
+    text-shadow: 0 0 15px rgba(189, 0, 255, 0.8);
 }
 
 .tagline {
-    font-family: var(--font-heading);
+    font-family: 'JetBrains Mono', monospace;
     font-size: 1.5rem;
     color: var(--color-neon-cyan);
     margin-bottom: var(--spacing-md);
-    letter-spacing: 2px;
+    letter-spacing: 4px;
+    background: rgba(0, 243, 255, 0.1);
+    padding: 5px 15px;
+    display: inline-block;
+    border-left: 3px solid var(--color-neon-cyan);
 }
 
 .description {
     font-size: 1.1rem;
-    color: var(--color-text-secondary);
+    color: var(--color-neon-cyan);
     margin-bottom: var(--spacing-lg);
     line-height: 1.6;
-    max-width: 600px;
+    max-width: 650px;
     margin-left: auto;
     margin-right: auto;
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    position: relative;
+}
+
+.description::before {
+    content: "MISSION_BRIEFING:";
+    display: block;
+    font-size: 0.7rem;
+    opacity: 0.5;
+    margin-bottom: 10px;
+    text-align: left;
 }
 
 .ctaButton {
     display: inline-block;
-    padding: 1rem 3rem;
-    background: linear-gradient(45deg, var(--color-neon-cyan), var(--color-neon-purple));
-    color: #fff;
-    font-family: var(--font-heading);
+    padding: 1.2rem 3.5rem;
+    background: transparent;
+    color: var(--color-neon-cyan);
+    font-family: 'Orbitron', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    border: 2px solid var(--color-neon-cyan);
     clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
 }
 
 .ctaButton:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 20px rgba(0, 243, 255, 0.6);
+    background: var(--color-neon-cyan);
+    color: var(--color-bg-dark);
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.6);
+    transform: scale(1.05);
 }
 
 .ctaButton::before {
@@ -105,7 +187,7 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
     transition: left 0.5s ease;
 }
 
@@ -115,10 +197,11 @@
 
 @media (max-width: 768px) {
     .title {
-        font-size: 3rem;
+        font-size: 3.5rem;
     }
 
     .tagline {
         font-size: 1.1rem;
+        letter-spacing: 2px;
     }
 }

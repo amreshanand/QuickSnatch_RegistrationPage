@@ -12,15 +12,16 @@ const Hero = () => {
                     QUICK SNATCH <span>2.0</span>
                 </h1>
                 <p className={styles.tagline}>
-                    &lt; The Quest Begins /&gt;
+                    &lt; The CLI Treasure Hunt /&gt;
                 </p>
                 <p className={styles.description}>
-                    A competitive clue-based hacking adventure. Decode the unknown,
-                    race against time, and claim the ultimate bounty.
+                    A high-stakes digital scavenger hunt. Navigate the terminal,
+                    decode cryptic logs, and track down the 0xROOT bounty before time runs out.
                 </p>
                 <Link to="/register" className={styles.ctaButton}>
-                    INITIALIZE_PROTOCOL
+                    START_THE_HUNT.exe
                 </Link>
+
             </div>
         </SectionWrapper>
     );

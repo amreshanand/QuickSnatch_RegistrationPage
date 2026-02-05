@@ -5,7 +5,25 @@ import styles from './Navbar.module.css';
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [time, setTime] = useState('');
     const location = useLocation();
+
+    useEffect(() => {
+        const updateTime = () => {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', {
+                hour12: false,
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            setTime(timeString);
+        };
+
+        updateTime();
+        const interval = setInterval(updateTime, 1000);
+        return () => clearInterval(interval);
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -17,7 +35,6 @@ const Navbar = () => {
 
     const scrollToSection = (id) => {
         if (location.pathname !== '/') {
-            // If not on home, we just navigate to home (logic handled in page or simple link)
             window.location.href = `/#${id}`;
         } else {
             const element = document.getElementById(id);
@@ -31,19 +48,25 @@ const Navbar = () => {
     return (
         <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
             <div className={styles.container}>
-                <div className={styles.logo} onClick={() => scrollToSection('hero')}>
-                    CORE_<span>QS2.0</span>
+                <div className={styles.navLeft}>
+                    <div className={styles.logo} onClick={() => scrollToSection('hero')}>
+                        CORE_<span>ROOT</span>
+                    </div>
+                    <div className={styles.timeDisplay}>
+                        [{time}]
+                    </div>
                 </div>
 
                 <div className={`${styles.links} ${isOpen ? styles.active : ''}`}>
-                    <a onClick={() => scrollToSection('hero')} className={styles.link}>Home</a>
-                    <a onClick={() => scrollToSection('about')} className={styles.link}>Quest Info</a>
-                    <a onClick={() => scrollToSection('committee')} className={styles.link}>Committee</a>
-                    <a onClick={() => scrollToSection('lastyear')} className={styles.link}>Legacy</a>
+                    <a onClick={() => scrollToSection('hero')} className={styles.link}>/home</a>
+                    <a onClick={() => scrollToSection('about')} className={styles.link}>/man_pages</a>
+                    <a onClick={() => scrollToSection('committee')} className={styles.link}>/sudo_users</a>
+                    <a onClick={() => scrollToSection('lastyear')} className={styles.link}>/logs</a>
                     <Link to="/register" className={styles.registerBtn}>
-                        INIT_REGISTRATION
+                        ./EXEC_REG.sh
                     </Link>
                 </div>
+
 
                 <div className={styles.hamburger} onClick={() => setIsOpen(!isOpen)}>
                     <div className={isOpen ? styles.barOpen : ''}></div>
