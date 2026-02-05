@@ -62,14 +62,39 @@
     padding: 20px;
 }
 
-.text {
+.textContainer {
     color: var(--color-neon-cyan, #00f3ff);
     font-size: 14px;
     line-height: 1.6;
-    white-space: pre-wrap;
     margin: 0 0 20px 0;
     min-height: 180px;
     text-shadow: 0 0 5px rgba(0, 243, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.line {
+    margin-bottom: 2px;
+}
+
+.accessLine {
+    margin-top: 15px;
+    /* Separate from other lines */
+    color: var(--color-neon-green, #0aff00);
+    font-weight: bold;
+    text-shadow: 0 0 10px var(--color-neon-green, #0aff00);
+    animation: flashLine 0.5s infinite alternate;
+}
+
+@keyframes flashLine {
+    from {
+        opacity: 0.8;
+    }
+
+    to {
+        opacity: 1;
+        text-shadow: 0 0 15px var(--color-neon-green, #0aff00);
+    }
 }
 
 .cursor {

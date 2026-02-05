@@ -13,7 +13,7 @@ const Loader = ({ onFinished }) => {
         '> DECRYPTING ANCIENT MAP_DATA...',
         '> SEARCHING FOR TARGET: "TREASURE_ROOT"',
         '> FOUND CLUE #1 - BYPASSING FIREWALL...',
-        '> ACCESS GRANTED. START THE HUNT.'
+        '\n> ACCESS GRANTED.\n> START THE HUNT.'
     ];
 
     useEffect(() => {
@@ -37,7 +37,9 @@ const Loader = ({ onFinished }) => {
             } else {
                 currentLine++;
                 currentChar = 0;
-                interval = setTimeout(typeLine, 100);
+                // Add longer pause before the final "ACCESS GRANTED" line
+                const isLastLine = currentLine === lines.length - 1;
+                interval = setTimeout(typeLine, isLastLine ? 800 : 100);
             }
         };
 
@@ -49,7 +51,8 @@ const Loader = ({ onFinished }) => {
                     clearInterval(progressInterval);
                     return 100;
                 }
-                return prev + Math.random() * 15;
+                // Slower increment to match the typing speed (~3-4 seconds total)
+                return prev + Math.random() * 2;
             });
         }, 50);
 
@@ -70,7 +73,14 @@ const Loader = ({ onFinished }) => {
                     <span className={styles.title}>SYSTEM_TERMINAL</span>
                 </div>
                 <div className={styles.content}>
-                    <pre className={styles.text}>{text}<span className={styles.cursor}>_</span></pre>
+                    <div className={styles.textContainer}>
+                        {text.split('\n').map((line, index) => (
+                            <div key={index} className={line.includes('ACCESS GRANTED') ? styles.accessLine : styles.line}>
+                                {line}
+                            </div>
+                        ))}
+                        <span className={styles.cursor}>_</span>
+                    </div>
                     <div className={styles.progressContainer}>
                         <div className={styles.progressBar} style={{ width: `${progress}%` }} />
                     </div>
