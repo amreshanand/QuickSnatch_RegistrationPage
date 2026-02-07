@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { supabase } from '../../lib/supabase';
 import Input from './Input';
 import styles from './TeamRegistrationForm.module.css';
 
@@ -13,6 +14,7 @@ const TeamRegistrationForm = () => {
     ]);
     const [errors, setErrors] = useState({});
     const [submitted, setSubmitted] = useState(false);
+    const [serverError, setServerError] = useState('');
 
     const addMember = () => {
         if (members.length < 5) {
@@ -79,14 +81,70 @@ const TeamRegistrationForm = () => {
         return Object.keys(newErrors).length === 0;
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const [submitting, setSubmitting] = useState(false);
+    const handleSubmit = async (e) => {
+        if (e) e.preventDefault();
 
-        if (validate()) {
-            setSubmitted(true);
+        if (submitting) return; // prevents double submit
+
+        if (!validate()) {
+            return;
         }
-    };
 
+        setSubmitting(true);
+
+        // normalize data BEFORE sending to DB
+        const cleanMembers = members.map(m => ({
+            name: m.name.trim(),
+            email: m.email.trim().toLowerCase()
+        }));
+
+        const cleanTeamName = teamName.trim();
+
+        const { error } = await supabase
+            .from("registrations")
+            .insert([
+                {
+                    team_name: cleanTeamName,
+
+                    member1_name: cleanMembers[0].name,
+                    member1_email: cleanMembers[0].email,
+
+                    member2_name: cleanMembers[1].name,
+                    member2_email: cleanMembers[1].email,
+
+                    member3_name: cleanMembers[2].name,
+                    member3_email: cleanMembers[2].email,
+
+                    member4_name: cleanMembers[3]?.name || null,
+                    member4_email: cleanMembers[3]?.email || null,
+
+                    member5_name: cleanMembers[4]?.name || null,
+                    member5_email: cleanMembers[4]?.email || null,
+                }
+            ]);
+
+        if (error) {
+            console.error("INSERT ERROR:", error);
+
+            if (error.message?.includes("Participant already registered")) {
+                setServerError("1 or more participant(s) has already registered in another team.");
+            }
+            else if (error.message?.toLowerCase().includes("duplicate")) {
+                setServerError("This team name is already registered.");
+            }
+            else {
+                setServerError("Server error while submitting registration.");
+            }
+
+            setSubmitting(false);
+            return;
+        }
+
+        setSubmitted(true);
+        setSubmitting(false);
+
+    };
     const handleReturnHome = () => {
         navigate('/');
     };
@@ -179,8 +237,6 @@ const TeamRegistrationForm = () => {
                                 </div>
                             </div>
                         ))}
-
-
                     </div>
 
                     {members.length < 5 && (
@@ -199,9 +255,19 @@ const TeamRegistrationForm = () => {
                         </div>
                     )}
 
+                    {serverError && (
+                        <div className={styles.errorMessage} style={{ textAlign: 'center', marginTop: '1rem' }}>
+                            {serverError}
+                        </div>
+                    )}
+
                     <div className={styles.submitSection}>
-                        <button type="submit" className={styles.submitButton}>
-                            CONFIRM REGISTRATION
+                        <button
+                            type="submit"
+                            className={styles.submitButton}
+                            disabled={submitting}
+                        >
+                            {submitting ? " SUBMITTING..." : "CONFIRM REGISTRATION"}
                         </button>
                     </div>
                 </form>
