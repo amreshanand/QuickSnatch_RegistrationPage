@@ -11,7 +11,7 @@ const About = () => {
     ];
 
     return (
-        <SectionWrapper id="about" className={styles.aboutSection}>
+        <SectionWrapper id="about">
             <h2 className={styles.heading}>System Overview</h2>
             <div className={styles.grid}>
                 {cards.map((card, index) => (

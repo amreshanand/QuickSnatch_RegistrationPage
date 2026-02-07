@@ -50,7 +50,7 @@ const Navbar = () => {
             <div className={styles.container}>
                 <div className={styles.navLeft}>
                     <div className={styles.logo} onClick={() => scrollToSection('hero')}>
-                        CORE_<span>ROOT</span>
+                        NST_<span>SDC</span>
                     </div>
                     <div className={styles.timeDisplay}>
                         [{time}]

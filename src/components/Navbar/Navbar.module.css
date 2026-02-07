@@ -17,12 +17,13 @@
 }
 
 .container {
-    max-width: 1400px;
+    max-width: var(--container-max-width);
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem var(--layout-padding-desktop);
+    width: 100%;
 }
 
 .navLeft {
@@ -152,13 +153,14 @@
     .links {
         position: fixed;
         top: 60px;
-        right: -100%;
+        right: 0;
         width: 85%;
         height: calc(100vh - 60px);
         background: rgba(5, 5, 5, 0.98);
         flex-direction: column;
         padding-top: var(--spacing-md);
-        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateX(100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         border-left: 2px solid var(--color-neon-cyan);
         align-items: flex-start;
         gap: 0;
@@ -179,11 +181,17 @@
     }
 
     .links.active {
-        right: 0;
+        transform: translateX(0);
+    }
+
+    .container {
+        padding: 0.75rem var(--layout-padding-mobile);
     }
 
     .hamburger {
         display: flex;
+        margin-right: -5px;
+        /* Adjust to visual center if needed, but keeping it simple */
     }
 
     .barOpen:nth-child(1) {

@@ -6,8 +6,6 @@
     align-items: center;
     text-align: center;
     position: relative;
-    overflow: hidden;
-    padding-top: 80px;
 }
 
 .heroSection::before {
@@ -76,8 +74,10 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 60vw;
-    height: 60vw;
+    width: 120%;
+    /* Bleed out slightly but remain centered to container */
+    max-width: 1400px;
+    aspect-ratio: 1;
     background: radial-gradient(circle, rgba(0, 243, 255, 0.15) 0%, transparent 70%);
     z-index: -1;
     pointer-events: none;
@@ -101,17 +101,19 @@
 .content {
     z-index: 5;
     max-width: 900px;
-    padding: 0 20px;
+    margin: 0 auto;
 }
 
 .title {
-    font-size: clamp(3rem, 10vw, 6rem);
+    font-size: var(--h1-size);
     font-weight: 900;
     margin-bottom: var(--spacing-sm);
     position: relative;
     color: var(--color-text-primary);
     text-shadow: 0 0 10px rgba(0, 243, 255, 0.8);
     letter-spacing: -2px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .title span {
@@ -156,7 +158,7 @@
 }
 
 .ctaButton {
-    display: inline-block;
+    display: inline-flex;
     padding: 1.2rem 3.5rem;
     background: transparent;
     color: var(--color-neon-cyan);
@@ -196,12 +198,17 @@
 }
 
 @media (max-width: 768px) {
-    .title {
-        font-size: 3.5rem;
+    .tagline {
+        font-size: 1rem;
+        letter-spacing: 1px;
+        white-space: normal;
+        display: block;
     }
 
-    .tagline {
-        font-size: 1.1rem;
-        letter-spacing: 2px;
+    .ctaButton {
+        padding: 1rem 1.5rem;
+        letter-spacing: 1px;
+        width: 100%;
+        max-width: 300px;
     }
 }
