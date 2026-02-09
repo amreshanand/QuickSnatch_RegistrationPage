@@ -32,11 +32,11 @@ const Footer = () => {
                 <div className={styles.col}>
                     <h4 className={styles.termHeader}> // SITE_MAP</h4>
                     <ul className={styles.linkList}>
-                        <li><a href="#hero">&gt; cd /home</a></li>
-                        <li><a href="#about">&gt; cat info.txt</a></li>
-                        <li><a href="#committee">&gt; ls /admins</a></li>
-                        <li><a href="#lastyear">&gt; history | grep legacy</a></li>
-                        <li><Link to="/register" className={styles.highlight}>&gt; ./execute_reg.sh</Link></li>
+                        <li><a href="#hero">&gt; HOME</a></li>
+                        <li><a href="#about">&gt; ABOUT</a></li>
+                        <li><a href="#committee">&gt; TEAM</a></li>
+                        <li><a href="#lastyear">&gt; ARCHIVE</a></li>
+                        <li><Link to="/register" className={styles.highlight}>&gt; REGISTER_NOW</Link></li>
                     </ul>
                 </div>
 
@@ -64,12 +64,12 @@ const Footer = () => {
             </div>
 
             <div className={styles.footerBottom}>
-                <div className={styles.bottomLeft}>
-                    © 2026 QUICK_SNATCH_SYSTEMS. ALL_RIGHTS_RESERVED.
-                </div>
-                <div className={styles.bottomRight}>
-                    <span className={styles.processing}>SYSTEM_PROCESSING...</span>
-                    <span className={styles.blink}>_</span> END_OF_FILE
+                <div className={styles.bottomContent}>
+                    <span>© 2026 QUICK_SNATCH_SYSTEMS.</span>
+                    <span className={styles.separator}>|</span>
+                    <span className={styles.credits}>INITIALIZED BY NST_SDC &lt;3</span>
+                    <span className={styles.separator}>|</span>
+                    <span><span className={styles.blink}>_</span> END_OF_FILE</span>
                 </div>
             </div>
         </footer>

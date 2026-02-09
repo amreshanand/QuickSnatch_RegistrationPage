@@ -25,21 +25,21 @@ const Loader = ({ onFinished }) => {
             if (currentLine >= lines.length) {
                 setTimeout(() => {
                     setIsFading(true);
-                    setTimeout(onFinished, 500);
-                }, 200);
+                    setTimeout(onFinished, 250);
+                }, 100);
                 return;
             }
 
             if (currentChar <= lines[currentLine].length) {
                 setText(prev => (currentChar === 0 ? prev + '\n' : prev) + lines[currentLine].charAt(currentChar - 1));
                 currentChar++;
-                interval = setTimeout(typeLine, 10);
+                interval = setTimeout(typeLine, 5);
             } else {
                 currentLine++;
                 currentChar = 0;
                 // Add longer pause before the final "ACCESS GRANTED" line
                 const isLastLine = currentLine === lines.length - 1;
-                interval = setTimeout(typeLine, isLastLine ? 800 : 100);
+                interval = setTimeout(typeLine, isLastLine ? 400 : 50);
             }
         };
 
@@ -54,7 +54,7 @@ const Loader = ({ onFinished }) => {
                 // Slower increment to match the typing speed (~3-4 seconds total)
                 return prev + Math.random() * 2;
             });
-        }, 50);
+        }, 25);
 
         return () => {
             clearTimeout(interval);

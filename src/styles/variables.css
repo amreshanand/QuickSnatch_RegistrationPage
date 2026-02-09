@@ -7,7 +7,7 @@
   --color-neon-purple: #bd00ff;
   --color-text-primary: #ffffff;
   --color-text-secondary: #aaaaaa;
-  
+
   /* Fonts */
   --font-heading: 'Orbitron', sans-serif;
   --font-body: 'JetBrains Mono', monospace;
@@ -16,13 +16,15 @@
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
   --spacing-md: 2rem;
-  --spacing-lg: 4rem;
-  --spacing-xl: 8rem;
+  --spacing-lg: 3rem;
+  /* Reduced from 4rem */
+  --spacing-xl: 5rem;
+  /* Reduced from 8rem for tighter layout */
 
   /* Borders */
   --border-width: 1px;
   --border-glow: 0 0 10px rgba(0, 243, 255, 0.5);
-  
+
   /* Transitions */
   --transition-fast: 0.2s ease;
   --transition-medium: 0.4s ease;

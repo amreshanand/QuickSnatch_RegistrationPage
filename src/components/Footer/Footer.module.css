@@ -1,6 +1,10 @@
 .footer {
     border-top: 2px solid var(--color-neon-cyan);
-    background: #000;
+    background:
+        linear-gradient(rgba(0, 5, 10, 0.95), rgba(0, 5, 10, 0.95)),
+        linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 20px 20px, 20px 20px;
     margin-top: var(--spacing-xl);
     position: relative;
     font-family: 'JetBrains Mono', monospace;
@@ -152,39 +156,39 @@
     border-top: 1px solid #222;
     padding: 1rem 2rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    /* Center everything */
     align-items: center;
     font-size: 0.75rem;
     color: #555;
     background: #050505;
+    padding-right: 200px;
+    /* HUGE padding to avoid any overlap with SystemStatus */
+}
+
+.bottomContent {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.credits {
+    color: var(--color-neon-purple);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.separator {
+    color: #333;
 }
 
 .blink {
     animation: blink 1s infinite;
 }
 
-.processing {
-    color: var(--color-neon-cyan);
-    margin-right: 15px;
-    font-size: 0.7rem;
-    letter-spacing: 2px;
-    opacity: 0.7;
-    animation: pulse 2s infinite;
-}
 
-@keyframes pulse {
-    0% {
-        opacity: 0.4;
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0.4;
-    }
-}
 
 @keyframes blink {
 
@@ -205,8 +209,12 @@
     }
 
     .footerBottom {
+        padding-right: 2rem;
+        /* Reset on mobile as status might be different or we accept stack */
         flex-direction: column;
         gap: 1rem;
         text-align: center;
+        padding-bottom: 80px;
+        /* Add bottom padding so SystemStatus (fixed) doesn't cover text */
     }
 }
