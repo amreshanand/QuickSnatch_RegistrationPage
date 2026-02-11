@@ -30,9 +30,11 @@ const SectionWrapper = ({ children, id, className }) => {
         <section
             id={id}
             ref={domRef}
-            className={`${styles.section} ${isVisible ? styles.visible : ''} ${className || ''}`}
+            className={`${styles.section} ${isVisible ? styles.visible : ''}`}
         >
-            {children}
+            <div className={`${styles.contentContainer} ${className || ''}`}>
+                {children}
+            </div>
         </section>
     );
 };

@@ -53,12 +53,34 @@
     content: "QS_PROT_ENROLL_V2.0";
     position: absolute;
     top: 10px;
-    left: 15px;
+    left: 60px;
+    /* Moved to make space for close button */
     font-family: var(--font-body);
     font-size: 0.65rem;
     color: var(--color-neon-cyan);
     opacity: 0.4;
     letter-spacing: 2px;
+}
+
+.closeButton {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: transparent;
+    border: none;
+    color: var(--color-neon-cyan);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    line-height: 1;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+
+.closeButton:hover {
+    opacity: 1;
+    transform: rotate(90deg);
+    text-shadow: 0 0 10px var(--color-neon-cyan);
 }
 
 .formCard::after {
@@ -76,6 +98,7 @@
 .cardHeader {
     text-align: center;
     margin-bottom: var(--spacing-lg);
+    margin-top: var(--spacing-md);
 }
 
 .formTitle {
@@ -140,6 +163,7 @@
     border-radius: 6px;
     color: var(--color-text-primary);
     transition: all 0.3s ease;
+    width: 100%;
 }
 
 .input:focus {
@@ -159,7 +183,7 @@
 
 .errorMessage {
     font-family: var(--font-body);
-    font-size: 0.75rem;
+    font-size: 1rem;
     color: #ff0055;
     margin-top: 2px;
 }
@@ -182,8 +206,33 @@
     font-family: var(--font-heading);
     font-size: 0.8rem;
     color: var(--color-neon-green);
-    margin-bottom: var(--spacing-sm);
     letter-spacing: 1px;
+    margin: 0;
+}
+
+.memberHeader {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.removeMemberButton {
+    background: transparent;
+    border: none;
+    color: #e9e9e9;
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 5px;
+    transition: all 0.2s ease;
+    opacity: 0.7;
+}
+
+.removeMemberButton:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    text-shadow: 0 0 5px #ff0055;
 }
 
 .memberInputs {
@@ -292,7 +341,10 @@
 }
 
 .successTitle {
-    font-size: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
     color: #fff;
     margin-bottom: var(--spacing-sm);
 }
@@ -385,6 +437,46 @@
     }
 
     .formCard {
-        padding: var(--spacing-md);
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .formContainer {
+        padding: 1rem;
+    }
+
+    .formCard {
+        padding: 1rem;
+    }
+
+    .memberRow {
+        padding: 0.8rem;
+    }
+
+    .formTitle {
+        font-size: 1.6rem;
+        word-break: break-word;
+        /* Ensure it wraps if needed */
+    }
+
+    .input {
+        padding: 0.6rem 0.8rem;
+        /* Smaller padding */
+        font-size: 0.9rem;
+    }
+
+    .formSubtitle {
+        font-size: 0.7rem;
+    }
+
+    /* adjust close button position for very small screens */
+    .closeButton {
+        top: 10px;
+        left: 10px;
+    }
+
+    .formCard::before {
+        left: 40px;
     }
 }

@@ -11,8 +11,8 @@ const Committee = () => {
     ];
 
     return (
-        <SectionWrapper id="committee" className={styles.committeeSection}>
-            <h2 className={styles.heading}>Organizing_Node</h2>
+        <SectionWrapper id="committee">
+            <h2 className={styles.heading}>Organizing Node</h2>
             <div className={styles.grid}>
                 {members.map((member, index) => (
                     <div key={index} className={styles.card}>

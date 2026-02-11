@@ -14,12 +14,15 @@
 .systemBar {
     background: rgba(0, 243, 255, 0.1);
     border-bottom: 1px solid rgba(0, 243, 255, 0.2);
-    padding: 8px 20px;
-    display: flex;
-    justify-content: space-between;
+    padding: 8px 0;
     font-size: 0.75rem;
     color: var(--color-neon-cyan);
     letter-spacing: 1px;
+}
+
+.systemBarInner {
+    display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
     gap: 10px;
 }
@@ -43,12 +46,11 @@
 }
 
 .grid {
-    max-width: 1400px;
-    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    padding: 3rem 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    padding: var(--section-spacing-desktop) 0;
+    justify-items: start;
 }
 
 .col {
@@ -80,8 +82,7 @@
 .desc {
     font-size: 0.9rem;
     color: var(--color-text-secondary);
-    line-height: 1.6;
-    max-width: 300px;
+    line-height: var(--line-height-normal);
 }
 
 .cliInput {
@@ -109,6 +110,7 @@
     font-size: 0.9rem;
     transition: all 0.2s;
     display: inline-block;
+    cursor: pointer;
 }
 
 .linkList a:hover {
@@ -154,11 +156,15 @@
 
 .footerBottom {
     border-top: 1px solid #222;
+
     padding: 1rem 2rem;
     display: flex;
     justify-content: center;
     /* Center everything */
     align-items: center;
+
+    padding: 1rem 0;
+
     font-size: 0.75rem;
     color: #555;
     background: #050505;
@@ -166,12 +172,24 @@
     /* HUGE padding to avoid any overlap with SystemStatus */
 }
 
+
 .bottomContent {
     display: flex;
     gap: 15px;
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
+
+.footerBottomInner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 80px;
+}
+
+.blink {
+    animation: blink 1s infinite;
+
 }
 
 .credits {
@@ -203,18 +221,42 @@
 }
 
 @media (max-width: 768px) {
+    .systemBarInner {
+        padding: 0;
+        justify-content: center;
+        text-align: center;
+    }
+
     .grid {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: 4rem;
+        padding: var(--section-spacing-mobile) 0;
     }
+
 
     .footerBottom {
         padding-right: 2rem;
         /* Reset on mobile as status might be different or we accept stack */
+
+    .footerBottomInner {
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.5rem;
         text-align: center;
+
         padding-bottom: 80px;
         /* Add bottom padding so SystemStatus (fixed) doesn't cover text */
+        padding: 2rem 0;
+
     }
+
+    .footer :global(.container-standard) {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+.footer :global(.container-standard) {
+    max-width: 1400px;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }

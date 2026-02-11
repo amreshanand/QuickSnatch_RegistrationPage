@@ -1,8 +1,10 @@
+
 .committeeSection {
     padding: var(--spacing-xl) 0;
     position: relative;
     overflow: hidden;
 }
+@import '../../styles/variables.css';
 
 /* Glitch Heading */
 .heading {
@@ -45,6 +47,11 @@
     text-shadow: -2px 0 #00fff9;
     animation: glitch-anim-2 3s infinite linear alternate-reverse;
     background: transparent;
+
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-text-primary);
+    font-size: var(--h2-size);
+
 }
 
 .grid {

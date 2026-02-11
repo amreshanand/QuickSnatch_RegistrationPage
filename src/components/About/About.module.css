@@ -1,3 +1,4 @@
+
 .aboutSection {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -12,6 +13,14 @@
     color: #fff;
     letter-spacing: 4px;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+@import '../../styles/variables.css';
+
+.heading {
+    text-align: center;
+    font-size: var(--h2-size);
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-neon-green);
+    text-shadow: 0 0 10px rgba(10, 255, 0, 0.3);
 }
 
 .grid {
@@ -92,6 +101,12 @@
 .iconTriangle,
 .iconStar {
     font-size: 20px;
+.icon {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.609);
+    font-weight: 700;
+
 }
 
 .index {
@@ -332,4 +347,13 @@
     50% {
         opacity: 0.5;
     }
+    font-size: var(--h4-size);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text-primary);
+}
+
+.cardDesc {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    line-height: var(--line-height-normal);
 }

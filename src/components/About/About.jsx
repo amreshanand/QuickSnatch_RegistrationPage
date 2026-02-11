@@ -130,6 +130,9 @@ const About = () => {
     return (
         <SectionWrapper id="about" className={styles.aboutSection}>
             <h2 className={styles.heading}>SYSTEM_OVERVIEW</h2>
+
+        <SectionWrapper id="about">
+            <h2 className={styles.heading}>System Overview</h2>
             <div className={styles.grid}>
                 {cards.map((card, index) => (
                     <TiltCard

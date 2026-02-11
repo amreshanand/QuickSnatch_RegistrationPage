@@ -50,7 +50,7 @@ const Navbar = () => {
             <div className={styles.container}>
                 <div className={styles.navLeft}>
                     <div className={styles.logo} onClick={() => scrollToSection('hero')}>
-                        CORE_<span>ROOT</span>
+                        NST<span>SDC</span>
                     </div>
                     <div className={styles.timeDisplay}>
                         [{time}]
@@ -60,7 +60,6 @@ const Navbar = () => {
                 <div className={`${styles.links} ${isOpen ? styles.active : ''}`}>
                     <a onClick={() => scrollToSection('hero')} className={styles.link}>/home</a>
                     <a onClick={() => scrollToSection('about')} className={styles.link}>/man_pages</a>
-                    <a onClick={() => scrollToSection('committee')} className={styles.link}>/sudo_users</a>
                     <a onClick={() => scrollToSection('lastyear')} className={styles.link}>/logs</a>
                     <Link to="/register" className={styles.registerBtn}>
                         ./EXEC_REG.sh

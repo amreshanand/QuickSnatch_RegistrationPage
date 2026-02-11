@@ -12,7 +12,20 @@
   --font-heading: 'Orbitron', sans-serif;
   --font-body: 'JetBrains Mono', monospace;
 
-  /* Spacing */
+  /* Responsive Section Spacing */
+  --section-spacing-desktop: 120px;
+  --section-spacing-mobile: 80px;
+
+  /* Typography Scale */
+  --h1-size: clamp(3rem, 8vw, 5rem);
+  --h2-size: clamp(2rem, 5vw, 3rem);
+  --h3-size: clamp(1.5rem, 3vw, 2rem);
+  --body-size: 1rem;
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.6;
+  --line-height-relaxed: 1.8;
+
+  /* Spacing Tokens */
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
   --spacing-md: 2rem;
@@ -28,4 +41,10 @@
   /* Transitions */
   --transition-fast: 0.2s ease;
   --transition-medium: 0.4s ease;
+
+  /* Layout */
+  --layout-padding-mobile: 1.5rem;
+  --layout-padding-desktop: 2rem;
+  --container-max-width: 1200px;
+
 }

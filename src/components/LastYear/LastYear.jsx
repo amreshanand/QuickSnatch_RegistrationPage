@@ -27,6 +27,20 @@ const LastYear = () => {
                         ACCESS_ARCHIVE_DATABASE
                     </a>
                 </div>
+
+            <div className={styles.content}>
+                <h2 className={styles.heading}>Legacy Archive</h2>
+                <p className={styles.text}>
+                    Quick Snatch 1.0 set the benchmark. Witness where it all began.
+                </p>
+                <a
+                    href="https://quicksnatch.netlify.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.linkButton}
+                >
+                    ACCESS ARCHIVES
+                </a>
             </div>
 
 
