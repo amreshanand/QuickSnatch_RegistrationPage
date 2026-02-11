@@ -44,7 +44,7 @@ const Footer = () => {
                 <div className={styles.col}>
                     <h4 className={styles.termHeader}> // COMM_CHANNELS</h4>
                     <ul className={styles.linkList}>
-                        <li><a href="#">[0] INSTAGRAM_LINK_ESTABLISHED</a></li>
+                        <li><a href="#">[0] INSTAGRAM_LINK_ESTABLISH</a></li>
                         <li><a href="#">[1] DISCORD_SERVER_NOT_FOUND</a></li>
                         <li><a href="#">[2] LINKEDIN_HANDSHAKE</a></li>
                         <li><a href="#">[3] MAIL_PROTOCOL_SMTP</a></li>
