@@ -1,10 +1,6 @@
 .footer {
     border-top: 2px solid var(--color-neon-cyan);
-    background:
-        linear-gradient(rgba(0, 5, 10, 0.95), rgba(0, 5, 10, 0.95)),
-        linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px);
-    background-size: 100% 100%, 20px 20px, 20px 20px;
+    background: #000;
     margin-top: var(--spacing-xl);
     position: relative;
     font-family: 'JetBrains Mono', monospace;
@@ -156,29 +152,11 @@
 
 .footerBottom {
     border-top: 1px solid #222;
-
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: center;
-    /* Center everything */
-    align-items: center;
-
     padding: 1rem 0;
-
     font-size: 0.75rem;
     color: #555;
     background: #050505;
-    padding-right: 200px;
-    /* HUGE padding to avoid any overlap with SystemStatus */
 }
-
-
-.bottomContent {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
 
 .footerBottomInner {
     display: flex;
@@ -189,24 +167,30 @@
 
 .blink {
     animation: blink 1s infinite;
-
 }
 
-.credits {
-    color: var(--color-neon-purple);
-    font-weight: 700;
-    letter-spacing: 1px;
+.processing {
+    color: var(--color-neon-cyan);
+    margin-right: 15px;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    opacity: 0.7;
+    animation: pulse 2s infinite;
 }
 
-.separator {
-    color: #333;
+@keyframes pulse {
+    0% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.4;
+    }
 }
-
-.blink {
-    animation: blink 1s infinite;
-}
-
-
 
 @keyframes blink {
 
@@ -233,20 +217,11 @@
         padding: var(--section-spacing-mobile) 0;
     }
 
-
-    .footerBottom {
-        padding-right: 2rem;
-        /* Reset on mobile as status might be different or we accept stack */
-
     .footerBottomInner {
         flex-direction: column;
         gap: 1.5rem;
         text-align: center;
-
-        padding-bottom: 80px;
-        /* Add bottom padding so SystemStatus (fixed) doesn't cover text */
         padding: 2rem 0;
-
     }
 
     .footer :global(.container-standard) {

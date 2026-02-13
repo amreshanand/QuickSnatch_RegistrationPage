@@ -1,216 +1,55 @@
-
-.committeeSection {
-    padding: var(--spacing-xl) 0;
-    position: relative;
-    overflow: hidden;
-}
 @import '../../styles/variables.css';
 
-/* Glitch Heading */
 .heading {
     text-align: center;
-    margin-bottom: 80px;
-    font-family: var(--font-heading);
-    font-size: 3.5rem;
-    font-weight: 800;
-    color: var(--color-neon-cyan);
-    letter-spacing: 5px;
-    position: relative;
-    text-shadow:
-        0 0 10px rgba(0, 243, 255, 0.5),
-        0 0 20px rgba(0, 243, 255, 0.3);
-    animation: textFlicker 3s infinite alternate;
-}
-
-.heading::before,
-.heading::after {
-    content: 'ORGANIZING_NODE';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--color-bg-dark);
-    overflow: hidden;
-    clip-path: inset(0 0 0 0);
-}
-
-.heading::before {
-    left: 2px;
-    text-shadow: -2px 0 #ff00c1;
-    animation: glitch-anim-1 2s infinite linear alternate-reverse;
-    background: transparent;
-}
-
-.heading::after {
-    left: -2px;
-    text-shadow: -2px 0 #00fff9;
-    animation: glitch-anim-2 3s infinite linear alternate-reverse;
-    background: transparent;
-
     margin-bottom: var(--spacing-lg);
     color: var(--color-text-primary);
     font-size: var(--h2-size);
-
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
 }
 
 .card {
-    background: #080808;
+    background: var(--color-bg-card);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 40px 20px;
+    padding: 2rem;
     text-align: center;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, transparent 100%);
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.card:hover {
-    border-color: var(--color-neon-cyan);
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 243, 255, 0.1);
-}
-
-.card:hover::before {
-    opacity: 1;
-}
-
-.avatarPlaceholder {
-    width: 100px;
-    height: 100px;
-    background: radial-gradient(circle at center, rgba(0, 243, 255, 0.1), transparent 70%);
-    border-radius: 50%;
-    margin: 0 auto 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--color-neon-cyan);
-    border: 2px solid rgba(0, 243, 255, 0.3);
-    box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
     transition: all 0.3s ease;
 }
 
-.card:hover .avatarPlaceholder {
-    border-color: var(--color-neon-cyan);
-    box-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
-    color: #fff;
-    transform: scale(1.1);
+.card:hover {
+    border-color: var(--color-neon-purple);
+    transform: translateY(-5px);
+}
+
+.avatarPlaceholder {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.5));
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-neon-cyan);
+    border: 1px solid var(--color-neon-cyan);
 }
 
 .name {
-    font-size: 1.2rem;
-    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
     color: #fff;
-    font-family: var(--font-heading);
-    letter-spacing: 2px;
 }
 
 .role {
     color: var(--color-neon-purple);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 600;
-}
-
-@keyframes glitch-anim-1 {
-    0% {
-        clip-path: inset(20% 0 80% 0);
-    }
-
-    20% {
-        clip-path: inset(60% 0 10% 0);
-    }
-
-    40% {
-        clip-path: inset(40% 0 50% 0);
-    }
-
-    60% {
-        clip-path: inset(80% 0 5% 0);
-    }
-
-    80% {
-        clip-path: inset(10% 0 70% 0);
-    }
-
-    100% {
-        clip-path: inset(30% 0 20% 0);
-    }
-}
-
-@keyframes glitch-anim-2 {
-    0% {
-        clip-path: inset(10% 0 60% 0);
-    }
-
-    20% {
-        clip-path: inset(80% 0 5% 0);
-    }
-
-    40% {
-        clip-path: inset(30% 0 20% 0);
-    }
-
-    60% {
-        clip-path: inset(10% 0 80% 0);
-    }
-
-    80% {
-        clip-path: inset(50% 0 30% 0);
-    }
-
-    100% {
-        clip-path: inset(70% 0 10% 0);
-    }
-}
-
-@keyframes textFlicker {
-
-    0%,
-    19%,
-    21%,
-    23%,
-    25%,
-    54%,
-    56%,
-    100% {
-        opacity: 0.8;
-        text-shadow:
-            0 0 10px rgba(0, 243, 255, 0.5),
-            0 0 20px rgba(0, 243, 255, 0.3);
-    }
-
-    20%,
-    24%,
-    55% {
-        opacity: 1;
-        text-shadow:
-            0 0 20px rgba(0, 243, 255, 0.8),
-            0 0 40px rgba(0, 243, 255, 0.5),
-            0 0 10px #fff;
-    }
+    letter-spacing: 1px;
 }

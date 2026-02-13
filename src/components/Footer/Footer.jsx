@@ -46,18 +46,6 @@ const Footer = () => {
                         </div>
                     </div>
 
-                {/* Column 2: Navigation Maps */}
-                <div className={styles.col}>
-                    <h4 className={styles.termHeader}> // SITE_MAP</h4>
-                    <ul className={styles.linkList}>
-                        <li><a href="#hero">&gt; HOME</a></li>
-                        <li><a href="#about">&gt; ABOUT</a></li>
-                        <li><a href="#committee">&gt; TEAM</a></li>
-                        <li><a href="#lastyear">&gt; ARCHIVE</a></li>
-                        <li><Link to="/register" className={styles.highlight}>&gt; REGISTER_NOW</Link></li>
-                    </ul>
-                </div>
-
                     {/* Column 2: Navigation Maps */}
                     <div className={styles.col}>
                         <h4 className={styles.termHeader}> // SITE_MAP</h4>
@@ -68,7 +56,6 @@ const Footer = () => {
                             <li><Link to="/register" className={styles.highlight}>&gt; ./execute_reg.sh</Link></li>
                         </ul>
                     </div>
-
 
                     {/* Column 3: Communication Channels */}
                     <div className={styles.col}>
@@ -95,12 +82,6 @@ const Footer = () => {
             </div>
 
             <div className={styles.footerBottom}>
-                <div className={styles.bottomContent}>
-                    <span>© 2026 QUICK_SNATCH_SYSTEMS.</span>
-                    <span className={styles.separator}>|</span>
-                    <span className={styles.credits}>INITIALIZED BY NST_SDC &lt;3</span>
-                    <span className={styles.separator}>|</span>
-                    <span><span className={styles.blink}>_</span> END_OF_FILE</span>
                 <div className="container-standard">
                     <div className={styles.footerBottomInner}>
                         <div className={styles.bottomLeft}>
@@ -111,7 +92,6 @@ const Footer = () => {
                             <span className={styles.blink}>_</span> END_OF_FILE
                         </div>
                     </div>
-
                 </div>
             </div>
         </footer>

@@ -8,17 +8,9 @@ const Hero = () => {
         <SectionWrapper id="hero" className={styles.heroSection}>
             <div className={styles.backgroundGlow}></div>
             <div className={styles.content}>
-                <div className={styles.topHeader}>
-                    <h3 className={styles.orgName}>N S T - S D C</h3>
-                    <p className={styles.orgFull}>STUDENT DEVELOPERS CLUB</p>
-                </div>
                 <h1 className={`${styles.title} glitch-text`} data-text="QUICK SNATCH 2.0">
                     QUICK SNATCH <span>2.0</span>
                 </h1>
-                <div className={styles.bottomHeader}>
-                    <p className={styles.presents}>NST-SDC PRESENTS</p>
-                    <p className={styles.challenge}>CAMPUS-WIDE TECH CHALLENGE</p>
-                </div>
                 <p className={styles.tagline}>
                     &lt; The CLI Treasure Hunt /&gt;
                 </p>

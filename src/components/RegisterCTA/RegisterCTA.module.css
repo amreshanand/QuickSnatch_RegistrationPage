@@ -1,31 +1,18 @@
 .container {
-    padding: var(--spacing-lg) 20px;
-
     padding-top: var(--spacing-xl);
     padding-bottom: var(--spacing-xl);
-
     display: flex;
     justify-content: center;
-    position: relative;
-    z-index: 10;
 }
 
 .box {
-    background: linear-gradient(135deg, rgba(5, 10, 20, 0.95) 0%, rgba(0, 0, 0, 0.9) 100%);
+    background: linear-gradient(180deg, rgba(0, 243, 255, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
     border: 1px solid var(--color-neon-cyan);
     padding: var(--spacing-lg);
     text-align: center;
     width: 100%;
-    max-width: 800px;
     position: relative;
     overflow: hidden;
-    clip-path: polygon(20px 0,
-            100% 0,
-            100% calc(100% - 20px),
-            calc(100% - 20px) 100%,
-            0 100%,
-            0 20px);
-    box-shadow: 0 0 30px rgba(0, 243, 255, 0.1);
 }
 
 .box::before {
@@ -34,41 +21,25 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background:
-        linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
-    background-size: 30px 30px;
-    pointer-events: none;
-    z-index: 1;
+    height: 2px;
+    background: var(--color-neon-cyan);
+    animation: scan 2s linear infinite;
 }
 
-.box::after {
-    /* Corner Accents */
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: 1px solid transparent;
-    border-image: linear-gradient(45deg, var(--color-neon-cyan), transparent 20%, transparent 80%, var(--color-neon-cyan)) 1;
-    pointer-events: none;
-    z-index: 2;
-}
+@keyframes scan {
+    0% {
+        transform: translateX(-100%);
+    }
 
+    100% {
+        transform: translateX(100%);
+    }
+}
 
 .title {
     font-size: 2.5rem;
     margin-bottom: var(--spacing-sm);
     color: #fff;
-    font-family: var(--font-heading);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    position: relative;
-    z-index: 5;
-    text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
-
     display: flex;
     justify-content: center;
 }
@@ -77,9 +48,6 @@
     color: var(--color-text-secondary);
     margin-bottom: var(--spacing-md);
     font-size: 1.1rem;
-    font-family: var(--font-body);
-    position: relative;
-    z-index: 5;
 }
 
 .button {
@@ -87,23 +55,18 @@
     align-items: center;
     justify-content: center;
     padding: 1rem 3rem;
-    background: rgba(0, 243, 255, 0.1);
-    color: var(--color-neon-cyan);
-    border: 1px solid var(--color-neon-cyan);
+    background: var(--color-neon-cyan);
+    color: #000;
     font-weight: 700;
     font-family: var(--font-heading);
     text-decoration: none;
     font-size: 1.1rem;
     transition: all 0.3s ease;
-    position: relative;
-    z-index: 5;
-    letter-spacing: 2px;
-    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 90% 100%, 0 100%);
 }
 
 .button:hover {
-    background: var(--color-neon-cyan);
-    color: #000;
-    box-shadow: 0 0 20px rgba(0, 243, 255, 0.6);
+    background: #fff;
+    box-shadow: 0 0 20px var(--color-neon-cyan);
     transform: scale(1.05);
 }

@@ -29,10 +29,8 @@
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
   --spacing-md: 2rem;
-  --spacing-lg: 3rem;
-  /* Reduced from 4rem */
-  --spacing-xl: 5rem;
-  /* Reduced from 8rem for tighter layout */
+  --spacing-lg: 4rem;
+  --spacing-xl: 8rem;
 
   /* Borders */
   --border-width: 1px;
@@ -41,10 +39,8 @@
   /* Transitions */
   --transition-fast: 0.2s ease;
   --transition-medium: 0.4s ease;
-
   /* Layout */
   --layout-padding-mobile: 1.5rem;
   --layout-padding-desktop: 2rem;
   --container-max-width: 1200px;
-
 }

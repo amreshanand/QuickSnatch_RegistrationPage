@@ -1,330 +1,63 @@
 .container {
     padding-top: var(--spacing-xl);
     padding-bottom: var(--spacing-xl);
-
-    position: relative;
-    z-index: 2;
-
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
 }
 
-.archiveCard {
-    width: 100%;
-    max-width: 800px;
-    background: rgba(5, 0, 10, 0.95);
-    border: 1px solid rgba(189, 0, 255, 0.3);
-    position: relative;
-    box-shadow: 0 0 60px rgba(189, 0, 255, 0.1);
-    margin-bottom: 80px;
-    overflow: hidden;
-    clip-path: polygon(0 0,
-            100% 0,
-            100% calc(100% - 30px),
-            calc(100% - 30px) 100%,
-            0 100%);
-    /* Cut corner on card too for Archive feel */
-}
-
-.archiveCard::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(to bottom, transparent, var(--color-neon-purple), transparent);
-    animation: scanline 4s linear infinite;
-}
-
-.cardHeader {
-    display: flex;
-    justify-content: space-between;
-    padding: 12px 25px;
-    border-bottom: 1px solid rgba(189, 0, 255, 0.3);
-    background: rgba(189, 0, 255, 0.05);
-    font-family: var(--font-body);
-    font-size: 10px;
-    letter-spacing: 3px;
-    color: var(--color-neon-purple);
-    text-transform: uppercase;
-}
-
 .content {
-    padding: 60px 40px 80px;
-    text-align: left;
-    /* Align text to left */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    /* Align items to start (left) */
-    background:
-        linear-gradient(rgba(189, 0, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(189, 0, 255, 0.02) 1px, transparent 1px);
-    background-size: 20px 20px;
+    text-align: center;
+    border: 1px solid var(--color-neon-purple);
+    padding: var(--spacing-lg);
+    background: rgba(189, 0, 255, 0.05);
+    max-width: 800px;
+    width: 100%;
     position: relative;
 }
 
 .content::before {
-    content: '';
+    content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, transparent 0%, rgba(5, 0, 10, 0.8) 100%);
-    pointer-events: none;
+    top: -5px;
+    left: -5px;
+    width: 10px;
+    height: 10px;
+    background: var(--color-neon-purple);
 }
 
 .content::after {
-    /* Scanline texture */
-    content: " ";
-    display: block;
+    content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-    z-index: 2;
-    background-size: 100% 2px, 3px 100%;
-    pointer-events: none;
+    bottom: -5px;
+    right: -5px;
+    width: 10px;
+    height: 10px;
+    background: var(--color-neon-purple);
 }
 
 .heading {
-    font-size: 1.5rem;
-    /* Reduced size */
-    margin-bottom: 20px;
+    font-size: 2rem;
     color: var(--color-neon-purple);
-    /* Changed to purple for "Legacy" feel */
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    text-shadow: 0 0 10px rgba(189, 0, 255, 0.5);
-    position: relative;
-    z-index: 3;
-    font-family: var(--font-heading);
-    border-bottom: 1px solid rgba(189, 0, 255, 0.3);
-    padding-bottom: 10px;
-    display: inline-block;
+    margin-bottom: var(--spacing-md);
 }
 
-.highlightText {
-    color: #fff;
-    margin-bottom: 30px;
-    font-family: var(--font-body);
-    /* Normal font */
-    /* Use heading font for benchmark text */
-    font-size: 1.8rem;
-    /* Larger for impact */
-    line-height: 1.4;
-    max-width: 600px;
-    position: relative;
-    z-index: 3;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-}
-
-.subHighlight {
-    color: var(--color-neon-cyan);
-    font-size: 1.2rem;
-    font-family: var(--font-body);
-    font-weight: 300;
-    letter-spacing: 1px;
-    display: block;
-    margin-top: 10px;
-    text-shadow: 0 0 5px rgba(0, 243, 255, 0.4);
+.text {
+    color: var(--color-text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-md);
 }
 
 .linkButton {
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-    /* Keep on right */
-    padding: 12px 25px;
-    background: rgba(189, 0, 255, 0.1);
-    color: var(--color-neon-purple);
-    border: 1px solid var(--color-neon-purple);
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-decoration: none;
-    z-index: 10;
-    transition: all 0.2s;
-
-    /* Crazy Shape */
-    clip-path: polygon(15px 0,
-            100% 0,
-            100% calc(100% - 15px),
-            calc(100% - 15px) 100%,
-            0 100%,
-            0 15px);
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border: 1px solid var(--color-text-primary);
+    color: var(--color-text-primary);
+    font-family: var(--font-heading);
+    transition: all 0.3s ease;
 }
 
 .linkButton:hover {
-    background: var(--color-neon-purple);
-    color: #000;
-    box-shadow: 0 0 15px rgba(189, 0, 255, 0.5);
-    transform: scale(1.05);
-}
-
-/* Glitch Effect for ORGANIZING_NODE */
-.footerNode {
-    font-family: var(--font-heading);
-    font-size: 3.5rem;
-    font-weight: 800;
-    color: var(--color-neon-cyan);
-    letter-spacing: 5px;
-    margin-top: 40px;
-    position: relative;
-    text-shadow:
-        0 0 10px rgba(0, 243, 255, 0.5),
-        0 0 20px rgba(0, 243, 255, 0.3);
-    animation: textFlicker 3s infinite alternate;
-}
-
-.footerNode::before,
-.footerNode::after {
-    content: 'ORGANIZING_NODE';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #050505;
-    /* Match background to hide main text */
-    overflow: hidden;
-    clip-path: inset(0 0 0 0);
-}
-
-.footerNode::before {
-    left: 2px;
-    text-shadow: -2px 0 #ff00c1;
-    animation: glitch-anim-1 2s infinite linear alternate-reverse;
-    background: transparent;
-}
-
-.footerNode::after {
-    left: -2px;
-    text-shadow: -2px 0 #00fff9;
-    animation: glitch-anim-2 3s infinite linear alternate-reverse;
-    background: transparent;
-}
-
-@keyframes glitch-anim-1 {
-    0% {
-        clip-path: inset(20% 0 80% 0);
-    }
-
-    20% {
-        clip-path: inset(60% 0 10% 0);
-    }
-
-    40% {
-        clip-path: inset(40% 0 50% 0);
-    }
-
-    60% {
-        clip-path: inset(80% 0 5% 0);
-    }
-
-    80% {
-        clip-path: inset(10% 0 70% 0);
-    }
-
-    100% {
-        clip-path: inset(30% 0 20% 0);
-    }
-}
-
-@keyframes glitch-anim-2 {
-    0% {
-        clip-path: inset(10% 0 60% 0);
-    }
-
-    20% {
-        clip-path: inset(80% 0 5% 0);
-    }
-
-    40% {
-        clip-path: inset(30% 0 20% 0);
-    }
-
-    60% {
-        clip-path: inset(10% 0 80% 0);
-    }
-
-    80% {
-        clip-path: inset(50% 0 30% 0);
-    }
-
-    100% {
-        clip-path: inset(70% 0 10% 0);
-    }
-}
-
-@keyframes textFlicker {
-
-    0%,
-    19%,
-    21%,
-    23%,
-    25%,
-    54%,
-    56%,
-    100% {
-        opacity: 0.8;
-        text-shadow:
-            0 0 10px rgba(0, 243, 255, 0.5),
-            0 0 20px rgba(0, 243, 255, 0.3);
-    }
-
-    20%,
-    24%,
-    55% {
-        opacity: 1;
-        text-shadow:
-            0 0 20px rgba(0, 243, 255, 0.8),
-            0 0 40px rgba(0, 243, 255, 0.5),
-            0 0 10px #fff;
-    }
-}
-
-@keyframes scanline {
-    0% {
-        top: -10%;
-    }
-
-    100% {
-        top: 110%;
-    }
-}
-
-@media (max-width: 768px) {
-    .archiveCard {
-        width: 90%;
-        margin-bottom: 50px;
-    }
-
-    .heading {
-        font-size: 1.8rem;
-        letter-spacing: 4px;
-    }
-
-    .linkButton {
-        position: relative;
-        bottom: auto;
-        right: auto;
-        margin-top: 30px;
-        clip-path: none;
-        /* Reset shape on mobile formatting if needed, or keep it */
-        width: 100%;
-        max-width: 200px;
-        text-align: center;
-    }
-
-    .content {
-        padding: 40px 20px;
-    }
+    background: var(--color-text-primary);
+    color: var(--color-bg-dark);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
