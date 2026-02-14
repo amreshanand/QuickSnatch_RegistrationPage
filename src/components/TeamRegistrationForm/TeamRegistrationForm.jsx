@@ -132,22 +132,28 @@ const TeamRegistrationForm = () => {
                 }
             ]);
 
-        if (error) {
-            console.error("INSERT ERROR:", error);
+    if (error) {
+        console.error("INSERT ERROR:", error);
 
-            if (error.message?.includes("Participant already registered")) {
-                setServerError("1 or more participant(s) has already registered in another team.");
-            }
-            else if (error.message?.toLowerCase().includes("duplicate")) {
-                setServerError("This team name is already registered.");
-            }
-            else {
-                setServerError("Server error while submitting registration.");
-            }
-
-            setSubmitting(false);
-            return;
+        if (error.message?.includes("Participant already registered")) {
+            setServerError("1 or more participant(s) has already registered in another team.");
         }
+        else if (error.message?.includes("unique_leader_phone")) {
+            setServerError("This phone number has already registered a team.");
+        }
+        else if (error.message?.includes("unique_team_name")) {
+            setServerError("This team name is already registered.");
+        }
+        else if (error.message?.toLowerCase().includes("duplicate")) {
+            setServerError("Duplicate registration detected.");
+        }
+        else {
+            setServerError("Server error while submitting registration.");
+        }
+
+        setSubmitting(false);
+        return;
+    }
 
         setSubmitted(true);
         setSubmitting(false);
