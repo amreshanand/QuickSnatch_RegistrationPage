@@ -12,6 +12,7 @@ const TeamRegistrationForm = () => {
         { name: '', email: '' },
         { name: '', email: '' }
     ]);
+    const [leaderPhone, setLeaderPhone] = useState('');
     const [errors, setErrors] = useState({});
     const [submitted, setSubmitted] = useState(false);
     const [serverError, setServerError] = useState('');
@@ -45,6 +46,12 @@ const TeamRegistrationForm = () => {
 
         if (members.length < 3) {
             newErrors.general = 'A team must have at least 3 members.';
+        }
+
+        if (!leaderPhone) {
+            newErrors.leaderPhone = 'Leader phone number is required';
+        } else if (!/^\d{10}$/.test(leaderPhone)) {
+            newErrors.leaderPhone = 'Phone number must be exactly 10 digits';
         }
 
         const emailCounts = {};
@@ -106,6 +113,7 @@ const TeamRegistrationForm = () => {
             .insert([
                 {
                     team_name: cleanTeamName,
+                    leader_phone: leaderPhone,
 
                     member1_name: cleanMembers[0].name,
                     member1_email: cleanMembers[0].email,
@@ -143,8 +151,8 @@ const TeamRegistrationForm = () => {
 
         setSubmitted(true);
         setSubmitting(false);
-
     };
+
     const handleReturnHome = () => {
         navigate('/');
     };
@@ -205,7 +213,7 @@ const TeamRegistrationForm = () => {
                         {members.map((member, index) => (
                             <div key={index} className={styles.memberRow}>
                                 <div className={styles.memberHeader}>
-                                    {members.length > 3 && (
+                                    {index > 2 && (
                                         <button
                                             type="button"
                                             className={styles.removeMemberButton}
@@ -215,7 +223,7 @@ const TeamRegistrationForm = () => {
                                             ×
                                         </button>
                                     )}
-                                    <h3 className={styles.memberLabel}>Member {index + 1}</h3>
+                                    <h3 className={styles.memberLabel}>Member {index + 1} {index === 0 && '(Leader)'}</h3>
                                 </div>
                                 <div className={styles.memberInputs}>
                                     <Input
@@ -234,6 +242,19 @@ const TeamRegistrationForm = () => {
                                         error={errors[`memberEmail${index}`]}
                                         required
                                     />
+                                    {index === 0 && (
+                                        <Input
+                                            label="Leader Phone Number"
+                                            placeholder="10-digit number"
+                                            value={leaderPhone}
+                                            onChange={(e) => {
+                                                const val = e.target.value.replace(/\D/g, '');
+                                                if (val.length <= 10) setLeaderPhone(val);
+                                            }}
+                                            error={errors.leaderPhone}
+                                            required
+                                        />
+                                    )}
                                 </div>
                             </div>
                         ))}
